@@ -292,7 +292,7 @@ int deleteNode(listNode* h, int key) {
 	if (h->rlink == h)
 	{
 		printf("No node to delete \n");
-		return 0;
+		return 1;
 	}
 
 	/* 삭제할 노드 찾고 삭제 */
@@ -303,7 +303,8 @@ int deleteNode(listNode* h, int key) {
 		{
 			p->llink->rlink = p->rlink;
 			p->rlink->llink = p->llink;
-			return 0;
+			free(p);
+			return 1;
 		}
 		p = p->rlink;
 	}
